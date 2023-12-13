@@ -3,7 +3,7 @@ using MyAPI_Entra21.Contracts.Repository; //.Repo adicionado
 using MyAPI_Entra21.DTO;
 using MyAPI_Entra21.Entity;
 
-namespace MinhaApiBonita.Controllers
+namespace MyAPI_Entra21.Controllers
 {
     [ApiController]
     [Route("user")] // endereço da rota. Pode ter nomes diferentes, este foi um exemplo
