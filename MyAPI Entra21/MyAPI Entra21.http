@@ -1,0 +1,6 @@
+@MyAPI_Entra21_HostAddress = http://localhost:5187
+
+GET {{MyAPI_Entra21_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
