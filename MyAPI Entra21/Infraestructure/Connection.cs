@@ -5,7 +5,7 @@ namespace MyAPI_Entra21.Infraestructure
 {
     public class Connection
     {
-        protected string connectionString = "Server=localhost;Database=aula;User=root;Password=root;";
+        protected string connectionString = "Server=localhost;Database=backend;User=root;Password=root;";
 
         protected MySqlConnection GetConnection()
         {
@@ -16,7 +16,7 @@ namespace MyAPI_Entra21.Infraestructure
         {
             using (MySqlConnection con = GetConnection())
             {
-                return await con.ExecuteAsync(sql, obj);
+                return await con.ExecuteAsync(sql, obj);  //async <-> await - para esperar 
             }
         }
     }

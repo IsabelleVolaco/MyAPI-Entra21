@@ -4,18 +4,17 @@ using MyAPI_Entra21.DTO;
 using MyAPI_Entra21.Entity;
 using MyAPI_Entra21.Infraestructure;
 
-
 namespace MyAPI_Entra21.Repository
 {
-    public class UserRepository : Connection, IUserRepository
+    public class UserRepository : Connection, IUserRepository //Implementação da classe, com a interface
     {
-        public async Task Add(UserDTO user)
+        public async Task Add(UserDTO user) // @""Permite quebra de linha, para organização
         {
             string sql = @"
                 INSERT INTO USER (Name, Email, Password)
                             VALUE (@Name, @Email, @Password)
             ";
-            await Execute(sql, user);
+            await Execute(sql, user); //é assíncrono, coloca await para executá-lo. Necessário uso de "async"
 
         }
 
@@ -32,11 +31,13 @@ namespace MyAPI_Entra21.Repository
 
         }
 
+
         public async Task<UserEntity> GetById(int id)
         {
             string sql = "SELECT * FROM USER WHERE Id = @id";
             return await GetConnection().QueryFirstAsync<UserEntity>(sql, new { id });
         }
+
 
         public async Task Update(UserEntity user)
         {

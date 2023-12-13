@@ -5,7 +5,8 @@ namespace MyAPI_Entra21.Contracts.Repository
 {
     public interface IUserRepository
     {
-        Task Add(UserDTO user);
+        //Primeiro contrato de Repositório 
+        Task Add(UserDTO user);  //Primeiro usuário declarado
         Task Update(UserEntity user);
         Task Delete(int id);
         Task<UserEntity> GetById(int id);

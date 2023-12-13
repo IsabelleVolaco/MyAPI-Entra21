@@ -6,12 +6,12 @@ using MyAPI_Entra21.Entity;
 namespace MinhaApiBonita.Controllers
 {
     [ApiController]
-    [Route("user")]
+    [Route("user")] // endereço da rota. Pode ter nomes diferentes, este foi um exemplo
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository; //não dropa a não ser na injeção de dependência
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository) //Construtor que faz o new UserRepository e coloca na variável, ele está injetando uma dependência
         {
             _userRepository = userRepository;
         }
@@ -19,13 +19,13 @@ namespace MinhaApiBonita.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _userRepository.Get());
+            return Ok(await _userRepository.Get()); //await pede para esperar para executar, então faz funcionar [na videoaula a diferença de GET e ADD são explciadas]
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await _userRepository.GetById(id));
+            return Ok(await _userRepository.GetById(id)); //retorna antes de "_UserRepository.Add(user);" ser executado, então mais uma vez é necessário await
         }
 
         [HttpPost]
